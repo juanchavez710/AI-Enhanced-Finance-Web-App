@@ -1,0 +1,64 @@
+{%extends "base.html" %} {%block title %} Home Page {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        .profile-container {
+            width: 80%;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-info h2 {
+            margin-bottom: 10px;
+        }
+
+        .tracked-stocks {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .tracked-stocks ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tracked-stocks ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-info">
+        <h2>User Profile</h2>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> john.doe@example.com</p>
+    </div>
+
+    <div class="tracked-stocks">
+        <h3>Tracked Stocks</h3>
+        <ul>
+            <li>Stock A</li>
+            <li>Stock B</li>
+            <li>Stock C</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

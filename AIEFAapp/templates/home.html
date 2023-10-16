@@ -1,0 +1,72 @@
+{%extends "base.html" %} {%block title %} Home Page {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Welcome to the Stock Price Prediction App</h1>
+    </div>
+
+    <div class="description">
+        <p>
+            Our Stock Price Prediction App utilizes advanced artificial intelligence and machine learning algorithms to forecast stock prices for the next 30 days.
+        </p>
+        <p>
+            Make informed investment decisions by leveraging our application's predictions based on historical stock data and predictive modeling techniques.
+        </p>
+        <p>
+            Get started by heading over to our Stocks page to obtain our prediction for the stock's price.
+        </p>
+    </div>
+
+    <h2>Key Features</h2>
+    <ul>
+        <li>Accurate Stock Price Predictions</li>
+        <li>Easy-to-Use Interface</li>
+        <li>Real-time Data Analysis</li>
+        <li>Personalized User Experience</li>
+    </ul>
+
+    <h2>How to Use</h2>
+    <ol>
+        <li>Create an account</li>
+        <li>Select which stocks you wish to track</li>
+        <li>Receive our prediction for the stock's price.</li>
+        <li>Make informed investment decisions based on the provided prediction.</li>
+    </ol>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

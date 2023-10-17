@@ -1,1 +1,1 @@
-web gunicorn AI-Enhanced-Finance-Web-App.wsgi:application --log-file -
+web gunicorn AIEFA.wsgi:application --log-file -

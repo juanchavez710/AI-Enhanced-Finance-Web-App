@@ -19,10 +19,10 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="graphs">Stocks</a>
+                <a class="nav-link" href="{% url 'predictions' %}">Stocks</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="disclaimers">Info</a>
+                <a class="nav-link" href="{% url 'disclaimers' %}">Info</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,10 +45,10 @@
             {% endif %}
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="logout">Logout</a>
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="profile">Profile</a>
+                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
               </li>
             {% endif %}
             </ul>

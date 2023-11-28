@@ -5,11 +5,34 @@
 {% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 
 {% block content %}
+
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body {
+        background-color: black; /* Black background */
+        color: #39FF14; /* Neon green text */
+    }
+
+    a, a:hover, a:focus {
+        color: #39FF14; /* Neon green links */
+    }
+
+    .signup-form {
+        background-color: #222; /* Dark background for the form */
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #39FF14;
+        border-color: #39FF14;
+    }
+</style>
 
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-6 offset-md-3 signup-form">
             <h1 class="mb-3">{% trans "Sign Up" %}</h1>
             <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
@@ -24,4 +47,5 @@
         </div>
     </div>
 </div>
-{% endblock content %} 
+
+{% endblock content %}

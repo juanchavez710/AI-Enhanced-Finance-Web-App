@@ -1,5 +1,26 @@
 {%extends "base.html" %} {%block title %} Disclaimers {% endblock %}
 {% block content %}
+<style>
+    body {
+        background-color: black; /* Black background */
+        color: #39FF14; /* Neon green text */
+    }
+
+    a, a:hover, a:focus {
+        color: #39FF14; /* Neon green links */
+    }
+
+    .signup-form {
+        background-color: #222; /* Dark background for the form */
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #39FF14;
+        border-color: #39FF14;
+    }
+</style>
 <div class="disclaimer mt-4">
     <p><strong>Disclaimer:</strong> The stock price predictions provided by this application are generated using AI and machine learning algorithms based on historical data. These predictions are for informational and educational purposes only and should not be considered as financial advice or recommendations to buy, sell, or hold any investment.</p>
     <p>Stock market investments involve risk, and past performance is not indicative of future results. Always conduct your own research and consult with a qualified financial advisor before making any investment decisions. We do not guarantee the accuracy or reliability of the predictions, and we are not liable for any financial losses or damages that may occur as a result of using this application.</p>

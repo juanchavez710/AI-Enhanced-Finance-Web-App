@@ -53,7 +53,7 @@
         <h3>Tracked Stocks</h3>
         <ul>
             {% for stock in associated_stocks %}
-                <li>{{ stock.symbol }} - {{ stock.name }}</li>
+                <li>{{ stock.symbol }} - {{ stock.name }} - <a href="{% url 'stock_graph' symbol=stock.symbol %}">View {{ stock.symbol }} Graph</a></li>
             {% empty %}
                 <li>No associated stocks yet.</li>
             {% endfor %}

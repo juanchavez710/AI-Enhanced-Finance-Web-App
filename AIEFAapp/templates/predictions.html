@@ -89,10 +89,10 @@
 </head>
 <body>
 
-{% for stock in stock_list %}
+    {% for stock in stocks %}
     <div class="stock-container">
         <div class="stock-header">
-            <strong>{{ stock }}</strong>
+            <strong>{{ stock.symbol }}</strong>
             <form method="POST" action="{% url 'associate_stock' stock.id %}">
                 {% csrf_token %}
                 {% if stock in request.user.profile.user_stocks.all %}
@@ -101,17 +101,19 @@
                     <button type="submit">Associate Stock</button>
                 {% endif %}
             </form>
-            <button class="dropdown-btn" onclick="toggleGraph('{{ stock }}')">▼</button>
+            <button class="dropdown-btn" onclick="toggleGraph('{{ stock.symbol }}')">▼</button>
         </div>
 
-        <div class="graph-container" id="graph-{{ stock }}" style="display: none;">
+        <div class="graph-container" id="graph-{{ stock.symbol }}" style="display: none;">
             <div class="accuracy-score">
-                Historical Accuracy Score: {{ stock.hist_accuracy }}%
+                Historical Accuracy Score: {{ stock.accuracy }}%
             </div>
-            <img src="{% url 'stock_graph' symbol=stock %}" alt="Stock Graph">
+            <!-- Link to the stock graph page -->
+            <a href="{% url 'stock_graph' symbol=stock.symbol %}">View {{ stock.symbol }} Graph</a>
         </div>
     </div>
 {% endfor %}
+
 
 <script>
     function toggleGraph(stockSymbol) {
@@ -119,6 +121,7 @@
         graphContainer.style.display = graphContainer.style.display === 'none' ? 'block' : 'none';
     }
 </script>
+
 
 </body>
 </html>

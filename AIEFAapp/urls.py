@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import stock_graph
 
 urlpatterns = [
     path("", views.home, name="home"),

@@ -43,3 +43,48 @@ def profile(request):
     associated_stocks = profile.user_stocks.all()  # Retrieve the associated stocks
 
     return render(request, 'profile.html', {'associated_stocks': associated_stocks})
+
+from django.shortcuts import render
+from pymongo import MongoClient
+
+# views.py
+import matplotlib.pyplot as plt
+import pandas as pd
+from django.http import HttpResponse
+from pymongo import MongoClient
+from io import BytesIO
+
+def stock_graph(request, symbol):
+    client = MongoClient("mongodb+srv://juanchavez:64TtcwjP5rMfV@cluster0.gtl8kn3.mongodb.net/?retryWrites=true&w=majority")
+    db = client['AIEFAStocks']
+    collection = db[symbol]
+    data = collection.find()
+
+    # Prepare data
+    dates = []
+    closing_prices = []
+    predicted_prices = []
+    for record in data:
+        dates.append(record['Date'])
+        closing_prices.append(record.get('Close'))
+        predicted_prices.append(record.get('Predicted Price'))
+
+    # Convert dates for matplotlib
+    dates = pd.to_datetime(dates)
+
+    # Create a figure and save it to a bytes buffer
+    plt.figure(figsize=(10, 5))
+    plt.plot(dates, closing_prices, label='Closing Price')
+    plt.plot(dates, predicted_prices, label='Predicted Price', linestyle='--')
+    plt.xlabel('Date')
+    plt.ylabel('Price')
+    plt.title('Stock Prices Over Time')
+    plt.legend()
+    plt.tight_layout()
+    
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+
+    return HttpResponse(buffer.getvalue(), content_type='image/png')
+
